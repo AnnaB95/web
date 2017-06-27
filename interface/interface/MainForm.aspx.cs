@@ -104,7 +104,7 @@ namespace web_interface
             try
             {
                 report = client.GetOrderSQL(ddl_terminalView.SelectedItem.Text, DateTime.Now, DateTime.Now);
-
+                
                 grid_report.DataSource = report;
                 grid_report.DataBind();
 

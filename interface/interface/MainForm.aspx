@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MainForm.aspx.cs" Inherits="web_interface.MainForm" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -16,10 +17,17 @@
             width: 331px;
             height: 100px;
         }
+        .overload
+        {
+            
+        }
     </style>
 </head>
 <body style="height: 499px; width: 1164px;">
+    
     <form id="form1" runat="server" visible="True">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
     <div>
     
         <div style="height: 124px; background-color: #FFFFFF;">
@@ -36,11 +44,7 @@
         <asp:ListItem>Сообщение</asp:ListItem>
     </asp:DropDownList>
     &nbsp;&nbsp;
-    <asp:ImageButton ID="btn_AscSort" runat="server" Height="16px" Width="27px" 
-        onclick="btn_AscSort_Click" />
-&nbsp;
-    <asp:ImageButton ID="btn_DescSort" runat="server" Height="16px" Width="27px" 
-        onclick="btn_DescSort_Click" />
+    &nbsp;
     <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     Терминал&nbsp;&nbsp;
@@ -49,7 +53,8 @@
         <asp:ListItem Selected="True">Все</asp:ListItem>
     </asp:DropDownList>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="Button1" runat="server" 
-        onclick="Button1_Click" Text="Обновить" Width="89px" />
+        onclick="Button1_Click" Text="Обновить" Width="89px" 
+        UseSubmitBehavior="False" />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Отображаемый период: с .... 
     по ....<br />
     <br />
@@ -60,7 +65,9 @@
     <asp:Button ID="btn_report" runat="server" Text="Сформировать отчет" 
         BackColor="#009999" BorderColor="#009999" BorderStyle="Outset" Font-Bold="True" 
         Font-Names="Arial" Font-Size="Larger" ForeColor="White" 
-        onclick="btn_report_Click" />
+        onclick="btn_report_Click" UseSubmitBehavior="False"/>
+        
+
     <br />
     <asp:Label ID="lbl_exception" runat="server"></asp:Label>
     <br />
@@ -76,7 +83,16 @@
                 SortExpression="Сообщение" />
         </Columns>
     </asp:GridView>
+    <asp:Panel ID="Panel1" runat="server" style="display:none">
+        <iframe id="frameDialogWindow" src="DialogWindow.aspx" frameborder="0">
+        </iframe>
+    </asp:Panel>
     <br />
+
+       
+
+    
+
     </form>
 </body>
 </html>
