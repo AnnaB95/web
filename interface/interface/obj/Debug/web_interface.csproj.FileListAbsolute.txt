@@ -1,0 +1,4 @@
+C:\Users\burob\Documents\C# Projects\Projects\test\interface\interface\bin\@interface.dll
+C:\Users\burob\Documents\C# Projects\Projects\test\interface\interface\bin\@interface.pdb
+C:\Users\burob\Documents\C# Projects\Projects\test\interface\interface\obj\Debug\@interface.dll
+C:\Users\burob\Documents\C# Projects\Projects\test\interface\interface\obj\Debug\@interface.pdb
